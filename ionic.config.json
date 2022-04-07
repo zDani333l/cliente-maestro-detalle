@@ -1,0 +1,7 @@
+{
+  "name": "cliente-maestro-detalle",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
