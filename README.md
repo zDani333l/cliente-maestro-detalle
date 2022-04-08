@@ -3,5 +3,5 @@
 Instalar dependencias:
 npm install
 
-iniciar aplicación
+iniciar aplicación:
 ionic serve
