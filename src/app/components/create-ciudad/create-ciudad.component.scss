@@ -1,0 +1,57 @@
+* {
+  font-family: Comfortaa-Light;
+}
+
+ion-content {
+  --background: #e5e5e5;
+  --keyboard-offset: 0px;
+  --offset-bottom  : 0px;
+  --offset-top     : 0px;
+  --padding-bottom : 10%;
+  --padding-end    : 10%;
+  --padding-start  : 10%;
+  --padding-top    : 10%;
+  font-family: Comfortaa-Light;
+}
+
+.container-create{
+margin: 120px 120px 50px 120px ;
+
+}
+
+h2{
+  text-align: center;
+  font-family: Comfortaa-bold;
+  margin-top: -20px;
+  margin-bottom: 40px;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin            : 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+
+input {
+  margin       : 0 0 20px 0;
+  font-weight  : bold;
+  padding: 0.75rem;
+  font-family: Comfortaa-Light;
+  height       : 50px;
+  width: 100%;
+  border-radius: 15px;
+  background: #fff;
+  border       : 1.5px solid #d1d1d1;
+}
+
+
+
+
+.container-btn {
+  margin-top    : 40px;
+}

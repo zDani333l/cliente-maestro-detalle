@@ -1,0 +1,47 @@
+<form>
+  <ngx-loading-x [show]="loading$ | async"></ngx-loading-x>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">CODIGO</th>
+        <th scope="col" sortable="apellido">
+          DESCRIPCION
+        </th>
+        <th>ACCIONES</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let ciudad of listCiudades$ | async">
+        <th scope="row">{{ ciudad.id }}</th>
+        <td>
+          <ngb-highlight [result]="ciudad.descripcion"></ngb-highlight>
+        </td>
+        <td>
+          <ion-button (click)="updateCiudad(ciudad)" class="btn-editar">
+            <ion-icon name="create-outline"></ion-icon> Editar
+          </ion-button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!--
+  <div class="d-flex justify-content-between p-2">
+    <ngb-pagination
+      [collectionSize]="(total$ | async)!"
+      [(page)]="service.page"
+      [pageSize]="service.pageSize"
+    >
+    </ngb-pagination>
+
+    <select
+      class="form-select"
+      style="width: auto"
+      name="pageSize"
+      [(ngModel)]="service.pageSize"
+    >
+      <option [ngValue]="2">2 items per page</option>
+      <option [ngValue]="4">4 items per page</option>
+      <option [ngValue]="6">6 items per page</option>
+    </select>
+  </div>-->
+</form>

@@ -1,3 +1,4 @@
+import { CiudadService } from './../services/ciudad.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,7 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-
-  constructor() {}
-
+  constructor(private ciudadService: CiudadService) {}
 }

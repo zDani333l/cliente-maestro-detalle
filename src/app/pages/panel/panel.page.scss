@@ -1,0 +1,94 @@
+ion-content{
+  --background: #e5e5e5;
+  --color: #000;
+}
+
+* {
+  font-family: Comfortaa-Light;
+}
+
+ion-content {
+  --background: #e5e5e5;
+  --keyboard-offset: 0px;
+  --offset-bottom  : 0px;
+  --offset-top     : 0px;
+  --padding-bottom : 10%;
+  --padding-end    : 10%;
+  --padding-start  : 10%;
+  --padding-top    : 10%;
+  font-family: Comfortaa-Light;
+}
+
+.container-create{
+margin: 0;
+padding: 80px 50px 70px 50px;
+
+h2{
+  margin-bottom: 30px;
+}
+
+background: #e5e5e5;
+
+label{
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+
+}
+
+h2{
+  text-align: center;
+  font-family: Comfortaa-bold;
+  margin-top: -20px;
+  margin-bottom: 40px;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin            : 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+
+input {
+  margin       : 0 0 20px 0;
+  font-weight  : bold;
+  padding: 0.75rem;
+  font-family: Comfortaa-Light;
+  height       : 50px;
+  width: 100%;
+  border-radius: 15px;
+  background: #fff;
+  border       : 1.5px solid #d1d1d1;
+}
+
+
+
+
+.container-btn {
+  margin-top    : 40px;
+}
+
+h2{
+  margin-top: 40px;
+  text-align: center;
+  margin-bottom: -50px;
+}
+
+table{
+  border: 1px solid #000;
+  margin-top: -20px;
+  margin-left: 20px;
+  margin-bottom: -20px;
+}
+
+ion-modal {
+  --background: transparent;
+  width       : 70% !important;
+  height      : 70% !important;
+  --border-radius: 20px !important;
+}

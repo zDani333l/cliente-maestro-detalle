@@ -1,0 +1,28 @@
+<ngx-loading-x [show]="loading$ | async"></ngx-loading-x>
+
+<div class="container-create">
+
+
+  <h2>{{title}}</h2>
+
+  <div class="container-form">
+    <form (ngSubmit)="onSubmit()" [formGroup]="register">
+      <div class="input">
+        <label for="">Ingrese el nombre de la ciudad</label>
+        <input type="text" class="form-control" placeholder="Nombre..." [ngClass]="{
+            'is-invalid': isValidField('Descripcion'),
+            'is-valid': !register.get('Descripcion').errors
+          }" formControlName="Descripcion" required>
+        <div class="invalid-feedback" *ngIf="isValidField('Descripcion')">
+          <span>
+            {{ getErrorMessage("Descripcion") }}
+          </span>
+        </div>
+      </div>
+      <div class="container-btn">
+        <app-button-templete-primary idBtn="register" [stateButton]="register.valid" [txtButton]="txtButton">
+        </app-button-templete-primary>
+      </div>
+    </form>
+  </div>
+</div>

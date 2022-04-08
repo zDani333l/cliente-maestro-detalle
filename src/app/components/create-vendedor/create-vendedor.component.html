@@ -1,0 +1,80 @@
+<ion-content>
+  <ngx-loading-x [show]="loading$ | async"></ngx-loading-x>
+
+  <h2>{{title}}</h2>
+
+  <div class="container-form">
+    <form (ngSubmit)="onSubmit()" [formGroup]="register">
+      <div class="input" *ngIf="!stateForm">
+        <label>Codigo</label>
+        <input [attr.disabled]="true" type="number" class="form-control" formControlName="id" [ngClass]="{
+            'is-valid': !register.get('id').errors
+          }" />
+      </div>
+
+      <div class="input">
+        <label for="">Ingrese el nombre</label>
+        <input type="text" class="form-control" placeholder="nombre..." [ngClass]="{
+            'is-invalid': isValidField('nombre'),
+            'is-valid': !register.get('nombre').errors
+          }" formControlName="nombre" required>
+        <div class="invalid-feedback" *ngIf="isValidField('nombre')">
+          <span>
+            {{ getErrorMessage("nombre") }}
+          </span>
+        </div>
+      </div>
+
+      <div class="input">
+        <label for="">Ingrese el apellido</label>
+        <input type="text" class="form-control" placeholder="apellido..." [ngClass]="{
+            'is-invalid': isValidField('apellido'),
+            'is-valid': !register.get('apellido').errors
+          }" formControlName="apellido" required />
+        <div class="invalid-feedback" *ngIf="isValidField('apellido')">
+          <span>
+            {{ getErrorMessage("apellido") }}
+          </span>
+        </div>
+      </div>
+
+      <div class="input">
+        <label>Ingrese su numero de identificación</label>
+        <input type="number" class="form-control" placeholder="Número de identificacion..."
+          formControlName="numeroIdentificacion" [ngClass]="{
+            'is-invalid': isValidField('numeroIdentificacion'),
+            'is-valid': !register.get('numeroIdentificacion').errors
+          }" required />
+        <div class="invalid-feedback" *ngIf="isValidField('numeroIdentificacion')">
+          <span>
+            {{ getErrorMessage("numeroIdentificacion") }}
+          </span>
+        </div>
+      </div>
+
+      <div class="container-select">
+        <label class="label-item" for="idCiudad">Elige la ciudad</label>
+        <select class="form-control" formControlName="idCiudad"
+          [ngClass]="{'is-invalid': isValidField('idCiudad'),'is-valid': !register.get('idCiudad').errors}"
+          class="form-control" aria-label="Selecciona el campo laboral">
+          <option *ngFor="let item of Ciudades$ | async" [value]="item.id">{{item.descripcion}}</option>
+        </select>
+        <div class="invalid-feedback" *ngIf="isValidField('idCiudad')">
+          <span>
+            {{getErrorMessage('idCiudad')}}
+          </span>
+        </div>
+
+      </div>
+
+      <ion-button (click)="exit()">
+        asfasfa
+      </ion-button>
+
+      <div class="container-btn">
+        <app-button-templete-primary idBtn="register" [stateButton]="register.valid" [txtButton]="txtButton">
+        </app-button-templete-primary>
+      </div>
+    </form>
+  </div>
+</ion-content>

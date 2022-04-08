@@ -1,0 +1,63 @@
+<ion-content>
+  <ngx-loading-x [show]="load"></ngx-loading-x>
+
+
+  <div *ngIf="!state">
+    <h2>Lista de vendedores</h2>
+    <app-tabla-vendedores (exitModal)="exit($event)" (modifyVendedor)="uptVend($event)"></app-tabla-vendedores>
+    <app-button-templete-primary idBtn="btH" (eventClickBtn)="openModalCreateVendedor()" txtButton="Crear Vendedor">
+    </app-button-templete-primary>
+    <app-buton-template-secondary idBtn="ciud" (eventClickBtn)="goToNextPage()" txtButton="Ciudades">
+    </app-buton-template-secondary>
+
+  </div>
+
+  <div *ngIf="state">
+    <ng-template #ciudad let-modal>
+      <div class="container-create">
+        <h2>{{title}}</h2>
+
+        <div class="container-form">
+          <form (ngSubmit)="onSubmit()" [formGroup]="register">
+
+
+            <div class="input" *ngIf="!this.stateFormVendedor">
+              <label for="">Codigo</label>
+              <input [attr.disabled]="true" type="text" class="form-control" [ngClass]="{
+                  'is-valid': !register.get('id').errors
+                }" formControlName="id" required>
+            </div>
+
+            <div class="input">
+              <label for="">Ingrese el nombre de la ciudad</label>
+              <input type="text" class="form-control" placeholder="Nombre..." [ngClass]="{
+                  'is-invalid': isValidField('descripcion'),
+                  'is-valid': !register.get('descripcion').errors
+                }" formControlName="descripcion" required>
+              <div class="invalid-feedback" *ngIf="isValidField('descripcion')">
+                <span>
+                  {{ getErrorMessage("descripcion") }}
+                </span>
+              </div>
+            </div>
+            <div class="container-btn">
+              <app-button-templete-primary idBtn="regg" [stateButton]="register.valid" [txtButton]="txtButton">
+              </app-button-templete-primary>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </ng-template>
+
+    <h2>Lista de ciudades</h2>
+    <app-table-ciudades (modifyCiudad)="editCiudad($event,ciudad)"></app-table-ciudades>
+    <app-button-templete-primary idBtn="btH2" (eventClickBtn)="createCiudad(ciudad)" txtButton="Crear Ciudad">
+    </app-button-templete-primary>
+    <app-buton-template-secondary idBtn="ciud3" (eventClickBtn)="goToV()" txtButton="Vendedores">
+    </app-buton-template-secondary>
+  </div>
+
+
+
+</ion-content>

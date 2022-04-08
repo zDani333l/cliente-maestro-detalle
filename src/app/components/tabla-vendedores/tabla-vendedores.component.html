@@ -1,0 +1,69 @@
+<form>
+  <ngx-loading-x [show]="loading$ | async"></ngx-loading-x>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">CODIGO</th>
+        <th scope="col" sortable="nombre" (sort)="onSort($event)">NOMBRE</th>
+        <th scope="col" sortable="apellido" (sort)="onSort($event)">
+          APELLIDO
+        </th>
+        <th scope="col" sortable="numero_identificacion" (sort)="onSort($event)">
+          NUMERO_IDENTIFICACION
+        </th>
+        <th scope="col" sortable="codigo_ciudad" (sort)="onSort($event)">
+          CODIGO_CIUDAD
+        </th>
+        <th scope="col" sortable="acciones" (sort)="onSort($event)">
+          ACCIONES
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let vendedor of listVendedores$ | async">
+        <th scope="row">{{ vendedor.id }}</th>
+        <td>
+          <ngb-highlight [result]="vendedor.nombre"></ngb-highlight>
+        </td>
+        <td>
+          <ngb-highlight [result]="vendedor.apellido"></ngb-highlight>
+        </td>
+        <td>
+          <ngb-highlight [result]="vendedor.numeroIdentificacion"></ngb-highlight>
+        </td>
+        <td>
+          <ngb-highlight [result]="vendedor.idCiudad | number"></ngb-highlight>
+        </td>
+        <td>
+          <ion-button (click)="deleteVendedor(vendedor.id)" class="btn-eliminar">
+            <ion-icon name="trash-outline"></ion-icon>Eliminar
+          </ion-button>
+          <ion-button (click)="updateVendedor(vendedor)" class="btn-editar">
+            <ion-icon name="create-outline"></ion-icon> Editar
+          </ion-button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!--
+  <div class="d-flex justify-content-between p-2">
+    <ngb-pagination
+      [collectionSize]="(total$ | async)!"
+      [(page)]="service.page"
+      [pageSize]="service.pageSize"
+    >
+    </ngb-pagination>
+
+    <select
+      class="form-select"
+      style="width: auto"
+      name="pageSize"
+      [(ngModel)]="service.pageSize"
+    >
+      <option [ngValue]="2">2 items per page</option>
+      <option [ngValue]="4">4 items per page</option>
+      <option [ngValue]="6">6 items per page</option>
+    </select>
+  </div>-->
+</form>

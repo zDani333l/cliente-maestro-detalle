@@ -24,3 +24,30 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+@font-face {
+  font-family: Comfortaa-Bold;
+  src: url(./assets/fonts/static/Comfortaa-Bold.ttf) format("opentype");
+}
+@font-face {
+  font-family: Comfortaa-Light;
+  src: url(./assets/fonts/static/Comfortaa-Light.ttf) format("opentype");
+}
+
+@font-face {
+  font-family: Comfortaa-Medium;
+  src: url(./assets/fonts/static/Comfortaa-Medium.ttf) format("opentype");
+}
+
+@font-face {
+  font-family: Comfortaa-Regular;
+  src: url(./assets/fonts/static/Comfortaa-Regular.ttf) format("opentype");
+}
+
+@font-face {
+  font-family: Comfortaa-SemiBold;
+  src: url(./assets/fonts/static/Comfortaa-SemiBold.ttf) format("opentype");
+}
+
+@import "bootstrap";
+
